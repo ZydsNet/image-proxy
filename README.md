@@ -40,12 +40,12 @@ text
 2. 添加 KV 命名空间绑定
 text
 1. 在"KV 命名空间绑定"点击"添加绑定"
-2. 变量名称: CONFIG_STORE
+2. 变量名称: CONFIG_KV
 3. KV 命名空间: 选择刚才创建的 CONFIG_STORE
 4. 点击"保存"
 
 重复操作添加第二个:
-变量名称: ANALYTICS_STORE
+变量名称: ANALYTICS_KV
 KV 命名空间: 选择 ANALYTICS_STORE
 点击"保存"
 
