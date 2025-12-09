@@ -1,0 +1,34 @@
+name: One-Click Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      config_store_name:
+        description: 'KV Config Store Name'
+        default: 'image-proxy-config'
+        required: true
+      analytics_store_name:
+        description: 'KV Analytics Store Name'
+        default: 'image-proxy-analytics'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Deploy
+      uses: cloudflare/wrangler-action@v3
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: deploy
+        preCommands: |
+          # 创建KV
+          wrangler kv:namespace create "${{ github.event.inputs.config_store_name }}"
+          wrangler kv:namespace create "${{ github.event.inputs.analytics_store_name }}"
+        
+        postCommands: |
+          echo "✅ Deployment Complete!"
+          echo "Update worker.js with full code for full features"
