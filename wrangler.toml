@@ -1,0 +1,21 @@
+name = "image-proxy-enhanced"
+main = "workers.js"
+compatibility_date = "2024-01-20"
+
+# KV命名空间配置
+kv_namespaces = [
+  # 配置存储
+  { binding = "CONFIG_STORE", id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
+  
+  # 统计存储
+  { binding = "ANALYTICS_STORE", id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" }
+]
+
+# 定时任务
+[triggers]
+crons = ["0 2 * * *"]  # 每天凌晨2点执行清理任务
+
+# 环境变量（KV为主，这些作为备用）
+[vars]
+CONFIG_MODE = "kv"
+FALLBACK_TARGET = "https://www.2ppt.com"
