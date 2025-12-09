@@ -1,21 +1,3 @@
 name = "image-proxy"
-main = "workers.js"
+main = "worker.js"
 compatibility_date = "2025-12-09"
-
-# KV命名空间配置
-kv_namespaces = [
-  # 配置存储
-  { binding = "PIC_PROXY_CONFIG_STORE", id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
-  
-  # 统计存储
-  { binding = "PIC_PROXY_ANALYTICS_STORE", id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" }
-]
-
-# 定时任务
-[triggers]
-crons = ["0 2 * * *"]  # 每天凌晨2点执行清理任务
-
-# 环境变量（KV为主，这些作为备用）
-[vars]
-CONFIG_MODE = "kv"
-FALLBACK_TARGET = "https://www.2ppt.com"
