@@ -5,10 +5,10 @@ compatibility_date = "2024-01-20"
 # KV命名空间配置
 kv_namespaces = [
   # 配置存储
-  { binding = "CONFIG_STORE", id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
+  { binding = "PIC_PROXY_CONFIG_STORE", id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" },
   
   # 统计存储
-  { binding = "ANALYTICS_STORE", id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" }
+  { binding = "PIC_PROXY_ANALYTICS_STORE", id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" }
 ]
 
 # 定时任务
